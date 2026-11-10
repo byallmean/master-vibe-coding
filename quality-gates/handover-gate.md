@@ -5,7 +5,8 @@ Gate này được viết lại ở version 2.2 với bảng tiêu chí cụ th�
 ## Entry Criteria
 
 - Mọi gate trước đã vượt qua hoặc có lý do hoãn lại ghi rõ.
-- AI Handover Package bản nháp đủ 20 mục đã có.
+- AI Handover Package bản nháp đủ 22 mục đã có.
+- File HANDOVER trong thư mục .handoff đã cập nhật ở lần bàn giao này và đã commit.
 - Trạng thái code, database, API và deploy hiện tại đã xác minh bằng bằng chứng thật.
 
 ## Required Activities
@@ -17,17 +18,18 @@ Gate này được viết lại ở version 2.2 với bảng tiêu chí cụ th�
 
 ## Bảng tiêu chí
 
-- Đủ 20 mục. Handover package đủ hai mươi mục theo templates/HANDOVER-TEMPLATE.md, không thiếu mục nào mà không ghi lý do.
+- Đủ 22 mục. Handover package đủ hai mươi hai mục theo templates/HANDOVER-TEMPLATE.md, không thiếu mục nào mà không ghi lý do.
+- Handover sống đã commit và push. File HANDOVER trong thư mục .handoff đã commit và push cùng với code của lần làm việc đó. Trạng thái trong handover khớp với git status và nhánh hiện tại.
 - Phân biệt xác minh, giả định và chưa biết. Mỗi thông tin đánh dấu rõ là đã xác minh, giả định hay chưa biết. Không lẫn lộn giả định với sự thật.
 - Trạng thái thực tế. Trạng thái code, database, API, deploy, gate và lỗi còn lại phản ánh đúng thực tế hiện tại, đối chiếu được với commit, log và bằng chứng thật.
 - Bước tiếp theo rõ ràng. Người nhận biết được việc tiếp theo là gì, ai làm, khi nào làm và cần gì để làm.
 - Không chứa secret. Handover không chứa mật khẩu, token, private key hay chuỗi kết nối có secret. Kết quả quét secret đính kèm.
 - Tài liệu đồng bộ. PRD, kiến trúc, API Specification và tài liệu vận hành cập nhật theo code hiện tại, không để tài liệu cũ nằm lại. Thay đổi nào chưa gộp vào spec sống thì ghi rõ.
-- Kiểm chứng đọc hiểu. Một agent mới đã đọc handover và nêu được trạng thái hiện tại và bước tiếp theo, kèm ngày kiểm chứng và tên agent.
+- Kiểm chứng đọc hiểu. Một agent mới đã pull mới nhất, đọc handover và nêu được trạng thái hiện tại và bước tiếp theo, kèm ngày kiểm chứng và tên agent.
 
 ## Deliverables
 
-- AI Handover Package đầy đủ 20 mục
+- AI Handover Package đầy đủ 22 mục
 
 ## Exit Criteria, điều kiện PASS
 
@@ -48,9 +50,9 @@ Tất cả các tiêu chí trong bảng trên đều đạt. Không được bù
 ## Trạng thái gate
 
 - PASS: Đủ điều kiện bàn giao.
-- CONDITIONAL PASS: Được tiếp tục với các hạn chế được ghi nhận và có biện pháp kiểm soát. CONDITIONAL PASS không được áp dụng khi handover chứa secret, khi thiếu trạng thái thực tế, hoặc khi lẫn lộn xác minh với giả định.
+- CONDITIONAL PASS: Được tiếp tục với các hạn chế được ghi nhận và có biện pháp kiểm soát. CONDITIONAL PASS không được áp dụng khi handover chứa secret, khi thiếu trạng thái thực tế, khi lẫn lộn xác minh với giả định, hoặc khi handover sống chưa commit và push.
 - FAIL: Không được chuyển giai đoạn.
 
 ## Xử lý khi không đạt
 
-Nếu handover thiếu trạng thái thực tế hoặc lẫn lộn xác minh với giả định thì FAIL. Bổ sung bằng chứng thật rồi mới đánh dấu lại.
+Nếu handover thiếu trạng thái thực tế, lẫn lộn xác minh với giả định, hoặc handover sống chưa commit và push, thì FAIL. Bổ sung bằng chứng thật rồi mới đánh dấu lại.

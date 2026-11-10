@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.1.0 - 2026-11-11
+
+- Living handover: SKILL.md now requires a living handover file in the project repo, updated, committed and pushed at every handover point, including end of session, context over 70 percent, token exhaustion, blocked work and before handing work to another agent. The pattern follows the agent-handoff convention: freeze work first, verify against git status and the current branch, and regenerate the file at each handover instead of appending forever.
+- workflows/12-handover.md now includes the living handover steps and a resume checklist for the receiving agent: pull latest, read the handover file, PROJECT_STATUS and recent git log, then state current status and next step before touching code.
+- templates/HANDOVER-TEMPLATE.md now has How to resume and Session log sections, bringing the package to 22 sections, and the whole template is normalized to Vietnamese with diacritics. SKILL.md, workflows/12-handover.md, quality-gates/handover-gate.md and agents/technical-project-manager.md now say 22 sections instead of 20.
+- quality-gates/handover-gate.md now requires the handover file to be committed and pushed with the work and matching git status and the current branch, and bars CONDITIONAL PASS when it is not.
+- agents/orchestrator.md now points the token exhaustion handover at the living handover file in the project repo.
+- No working version 3.0 component was deleted.
+
 ## 3.0.0 - 2026-11-11
 
 - Performance split out: added workflows/09b-performance-audit.md and quality-gates/performance-gate.md with default numeric budgets, LCP at most 2.5 seconds, API p95 at most 500 milliseconds, JavaScript bundle at most 300 KB after compression and slowest query in the main flow at most 200 milliseconds. Workflow 09-security-audit now covers security only and points to 09b as its next workflow. The Performance Engineer agent carries the same budgets and checklist.

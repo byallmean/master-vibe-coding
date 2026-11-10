@@ -65,7 +65,7 @@
 
 - Mọi dự án phải có ngân sách chi phí và token ghi trong PROJECT_STATUS.md trước khi bắt đầu giai đoạn triển khai. Ngân sách ghi rõ số task tối đa cho mỗi phiên làm việc, giới hạn context cần dừng và handover, và model nào dùng cho việc nào.
 - Khi context đã dùng quá 70 phần trăm thì dừng lại và handover, không cố làm tiếp trong cùng một phiên. Khi số task trong phiên vượt ngân sách thì dừng lại, tổng kết trạng thái và hẹn phiên tiếp theo, không làm thêm task mới trong cùng phiên.
-- Việc nặng về suy luận như thiết kế kiến trúc, review code và debug nguyên nhân gốc dùng model mạnh nhất có sẵn. Việc lặp lại có khuôn mẫu như viết test theo mẫu, cập nhật tài liệu và sửa lỗi nhỏ đã xác định rõ dùng model nhẹ hơn để tiết kiệm token. Khi một tài khoản sắp hết token thì handover đầy đủ để phiên làm việc trên tài khoản còn lại tiếp tục được ngay, không phải khám phá lại dự án.
+- Việc nặng về suy luận như thiết kế kiến trúc, review code và debug nguyên nhân gốc dùng model mạnh nhất có sẵn. Việc lặp lại có khuôn mẫu như viết test theo mẫu, cập nhật tài liệu và sửa lỗi nhỏ đã xác định rõ dùng model nhẹ hơn để tiết kiệm token. Khi một tài khoản sắp hết token thì handover đầy đủ, ghi vào file handover sống trong repo dự án rồi commit và push, để phiên làm việc trên tài khoản còn lại tiếp tục được ngay, không phải khám phá lại dự án.
 - Product Owner có thể điều chỉnh ngân sách nhưng phải ghi rõ số mới và lý do vào PROJECT_STATUS.md. Vượt ngân sách mà không ghi lý do là vi phạm quy tắc làm việc.
 
 ## Debug có hệ thống
@@ -147,11 +147,23 @@
 
 ## Bàn giao dự án
 
-- Dùng workflows/12-handover.md và templates/HANDOVER-TEMPLATE.md để xây handover package đủ hai mươi mục.
+- Dùng workflows/12-handover.md và templates/HANDOVER-TEMPLATE.md để xây handover package đủ hai mươi hai mục.
 
 - Đánh dấu mỗi thông tin trong handover là đã xác minh hoặc giả định hoặc chưa biết và không đưa mật khẩu hoặc token hoặc private key vào handover.
 
 - Kiểm chứng rằng một agent mới có thể đọc handover và nêu được trạng thái hiện tại và bước tiếp theo mà không cần khám phá lại toàn bộ dự án.
+
+- Handover sống là file HANDOVER định dạng markdown trong thư mục .handoff ở gốc repo dự án, viết theo templates/HANDOVER-TEMPLATE.md. Cập nhật file này ở mỗi điểm bàn giao, gồm cuối phiên làm việc, context quá 70 phần trăm, sắp hết token của tài khoản đang dùng, khi bị kẹt, và trước khi chuyển việc cho agent khác.
+
+- Trước khi viết handover thì đóng băng việc đang làm, gồm commit hoặc stash code và dừng tiến trình đang chạy, rồi kiểm chứng trạng thái thật bằng git status và nhánh hiện tại. Handover phải phản ánh đúng thực tế repo, không viết theo trí nhớ trong chat.
+
+- Viết lại toàn bộ file handover ở mỗi lần bàn giao, không cộng dồn mãi. Nếu cần giữ lịch sử thì archive bản cũ vào thư mục archive trong .handoff với tên có thời gian.
+
+- Commit và push file handover cùng với code của lần làm việc đó, để agent nhận việc lấy được bằng git pull. Không để handover chỉ nằm trong chat hoặc chỉ nằm ở máy local.
+
+- Agent nhận việc phải pull mới nhất rồi đọc file HANDOVER trong .handoff, PROJECT_STATUS và git log gần nhất, nêu được trạng thái hiện tại và bước tiếp theo rồi mới chạm vào code.
+
+- Giữ handover ngắn, gồm mục tiêu, việc đã xong, việc tiếp theo, cách đã thử và bị loại, bẫy cần tránh và câu hỏi mở. Chỉ trỏ tới file và commit, không chép code dài vào handover.
 
 ## Không tin dữ liệu từ client và kiểm tra bảo mật từ sớm
 

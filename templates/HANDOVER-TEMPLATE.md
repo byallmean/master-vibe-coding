@@ -1,83 +1,91 @@
 # Template: HANDOVER-TEMPLATE
 
-Phan biet ro thong tin da xac minh, gia dinh va chua biet. Khong ghi secret vao handover.
+File này lưu ở thư mục .handoff trong repo dự án với tên HANDOVER, định dạng markdown. Phân biệt rõ thông tin đã xác minh, giả định và chưa biết. Không ghi secret vào handover. Viết lại toàn bộ ở mỗi lần bàn giao, sau khi kiểm chứng bằng git status và nhánh hiện tại. Chỉ trỏ tới file và commit, không chép code dài vào đây.
 
-## Project Overview
+## Tổng quan dự án
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Product Requirements
+## Yêu cầu sản phẩm
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Current Architecture
+## Kiến trúc hiện tại
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Repository Information
+## Thông tin repository
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Branch va Commit State
+## Nhánh và trạng thái commit
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Current Implementation Status
+## Trạng thái triển khai hiện tại
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Database State
+## Trạng thái database
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## API Status
+## Trạng thái API
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Completed Features
+## Tính năng đã xong
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Incomplete Features
+## Tính năng chưa xong
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Known Bugs
+## Lỗi đã biết
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Technical Debt
+## Nợ kỹ thuật
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Deployment State
+## Trạng thái deploy
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Environment Configuration
+## Cấu hình môi trường
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## External Integrations
+## Tích hợp bên ngoài
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Pending Decisions
+## Quyết định đang chờ
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Current Blockers
+## Điểm đang kẹt
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Immediate Next Steps
+## Bước tiếp theo ngay
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Testing Evidence
+## Bằng chứng kiểm thử
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
 
-## Links to Relevant GitHub Resources
+## Liên kết tới tài nguyên GitHub liên quan
 
-[Dien noi dung cu the cho du an tai day.]
+[Điền nội dung cụ thể cho dự án tại đây.]
+
+## Cách tiếp tục
+
+[Điền nhánh cần checkout, commit tốt cuối cùng đã kiểm chứng, lệnh chạy test và build, và file cần đọc đầu tiên. Bên nhận việc đọc mục này rồi nêu trạng thái hiện tại và bước tiếp theo trước khi chạm vào code.]
+
+## Nhật ký phiên làm việc
+
+[Điền ngày, agent, việc đã làm và commit cho mỗi phiên làm việc. Chỉ giữ vài phiên gần nhất, phiên cũ hơn archive vào thư mục archive trong .handoff.]

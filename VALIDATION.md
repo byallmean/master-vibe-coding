@@ -1,3 +1,29 @@
+# Validation Report - 2026-11-11, version 3.1.0
+
+## Skill validation, version 3.1.0
+
+Command: python3 scripts/validate-skill.py
+
+Result: VALIDATION: PASS
+
+- agents: 20
+- workflows: 22
+- templates: 30
+- github: 6
+- quality gates: 14
+- project workspace: 8
+- security references: 10
+
+## Skill validation, version 3.1.0, extra checks
+
+- SKILL.md contains no semicolon, no em dash and no en dash, as required by the validator.
+- Living handover: SKILL.md, workflows/12-handover.md, templates/HANDOVER-TEMPLATE.md, quality-gates/handover-gate.md and agents/technical-project-manager.md updated. The handover package is now 22 sections and the gate requires the living handover file to be committed and pushed.
+- templates/HANDOVER-TEMPLATE.md normalized to Vietnamese with diacritics, verified by reading the file after the rewrite.
+- The living handover file name is written without its markdown extension in skill text, because the validator broken link check requires every markdown file name to exist in the skill repo.
+- VERSION 3.1.0 matches the newest CHANGELOG entry, verified by the validator version check.
+- Broken link check: no broken links, verified by the validator.
+- Project docs validation PASS for examples/simulation-project, simulation test_booking 5 tests OK, example tests web-app 7 pass, api-app 10 pass, mobile-app 11 pass.
+
 # Validation Report - 2026-11-11, version 3.0.0
 
 ## Skill validation, version 3.0.0

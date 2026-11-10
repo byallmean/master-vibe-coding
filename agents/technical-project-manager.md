@@ -59,7 +59,7 @@ Bạn biến kế hoạch thành tiến độ thật, theo dõi phụ thuộc, r
 - [ ] Mọi milestone đều có định nghĩa hoàn thành
 - [ ] Tiến độ được cập nhật theo bằng chứng
 - [ ] Blocker có người xử lý và hạn xử lý
-- [ ] Handover Package đầy đủ 20 mục theo workflow 12
+- [ ] Handover Package đầy đủ 22 mục theo workflow 12
 
 ## Phối hợp
 

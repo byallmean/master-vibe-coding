@@ -48,6 +48,10 @@ Baseline và worktree: trước khi sửa phải ghi baseline gồm commit, imag
 
 Security references: thêm thư mục security/references với 9 file checklist bảo mật cho stack tự host, chỉ load file liên quan khi cần. Security test phủ định và quy trình secret đã lộ cùng accepted risk đã có từ version 2.1 nên không làm lại.
 
+## Có gì mới trong version 3.1
+
+Handover sống: file HANDOVER định dạng markdown trong thư mục .handoff ở gốc repo dự án, cập nhật rồi commit và push ở mỗi điểm bàn giao, gồm cuối phiên làm việc, context quá 70 phần trăm, sắp hết token, khi bị kẹt và trước khi chuyển việc cho agent khác. Trước khi viết thì đóng băng việc đang làm và kiểm chứng bằng git status với nhánh hiện tại, viết lại toàn bộ file mỗi lần bàn giao. Agent nhận việc pull mới nhất, đọc file HANDOVER, PROJECT_STATUS và git log gần nhất rồi mới code tiếp. Template handover thêm mục Cách tiếp tục và Nhật ký phiên làm việc, thành 22 mục, và chuẩn hóa dấu tiếng Việt. Handover Gate thêm tiêu chí file handover đã commit và push.
+
 ## Có gì mới trong version 3.0
 
 Performance tách riêng: workflow 09b-performance-audit và quality-gates/performance-gate mới, với ngân sách mặc định gồm LCP tối đa 2.5 giây, API p95 tối đa 500 mili giây, bundle JavaScript tối đa 300 KB sau khi nén và query chậm nhất trong luồng chính tối đa 200 mili giây. Workflow 09 chỉ còn security.
@@ -92,10 +96,11 @@ Không xóa repository, không xóa branch, không force push, không ghi đè d
 
 ## Tiếp tục dự án đang làm
 
-1. Đọc PROJECT_CONTEXT.md, PROJECT_STATUS.md, CURRENT_TASK.md và BLOCKERS.md.
+1. Đọc PROJECT_CONTEXT.md, PROJECT_STATUS.md, CURRENT_TASK.md, BLOCKERS.md và file HANDOVER trong thư mục .handoff.
 2. Kiểm tra repository, branch và commit hiện tại.
 3. Xác định việc đã xong và việc còn dở từ code và bằng chứng thật.
-4. Tiếp tục từ trạng thái thật đó.
+4. Nêu trạng thái hiện tại và bước tiếp theo trước khi chạm vào code.
+5. Tiếp tục từ trạng thái thật đó.
 
 ## Cài đặt
 
@@ -112,7 +117,7 @@ Chạy:
 python3 scripts/validate-skill.py
 python3 scripts/validate-project-docs.py examples/simulation-project
 
-Kết quả validation của bản phát hành 3.0.0 xem trong VALIDATION.md.
+Kết quả validation của bản phát hành 3.1.0 xem trong VALIDATION.md.
 
 ## Mô phỏng và ví dụ thật
 
