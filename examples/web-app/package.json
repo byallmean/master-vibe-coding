@@ -1,0 +1,1 @@
+{"description":"Tiny task-list web app for the master-vibe-coding skill. Node.js built-ins only.","license":"MIT","main":"server.js","name":"skill-example-web-app","private":true,"scripts":{"start":"node server.js","test":"node --test test/"},"version":"1.0.0"}

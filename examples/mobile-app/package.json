@@ -1,0 +1,1 @@
+{"description":"React Native / Expo-style skeleton for the master-vibe-coding skill. Pure logic only, no build dependency.","license":"MIT","main":"src/screens.js","name":"skill-example-mobile-app","private":true,"scripts":{"test":"node --test test/"},"version":"1.0.0"}

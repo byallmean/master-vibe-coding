@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danh sách công việc</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+  label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+  input { width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; }
+  button { padding: 0.5rem 1rem; }
+  .error { color: #b00020; }
+</style>
+</head>
+<body>
+  <h1>Danh sách công việc</h1>
+
+  <form id="task-form">
+    <label for="title">Tên công việc</label>
+    <input id="title" name="title" type="text" maxlength="100" required>
+    <button type="submit">Thêm công việc</button>
+  </form>
+  <p id="form-error" class="error" role="alert"></p>
+
+  <h2>Công việc của bạn</h2>
+  <ul id="task-list"></ul>
+  <p id="empty-note">Chưa có công việc nào.</p>
+
+<script>
+  const form = document.getElementById('task-form');
+  const titleInput = document.getElementById('title');
+  const errorBox = document.getElementById('form-error');
+  const list = document.getElementById('task-list');
+  const emptyNote = document.getElementById('empty-note');
+
+  function renderTasks(tasks) {
+    list.textContent = '';
+    emptyNote.hidden = tasks.length > 0;
+    for (const task of tasks) {
+      const item = document.createElement('li');
+      const name = document.createElement('strong');
+      name.textContent = task.title;
+      const status = document.createElement('span');
+      status.textContent = task.done ? ' — Đã xong' : ' — Chưa xong';
+      const when = document.createElement('small');
+      when.textContent = ' — Tạo lúc ' + new Date(task.createdAt).toLocaleString('vi-VN');
+      item.append(name, status, when);
+      list.appendChild(item);
+    }
+  }
+
+  async function loadTasks() {
+    const res = await fetch('/api/tasks');
+    const data = await res.json();
+    renderTasks(data.tasks);
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    errorBox.textContent = '';
+    const res = await fetch('/api/tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: titleInput.value }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      errorBox.textContent = data.error || 'Không thêm được công việc.';
+      return;
+    }
+    titleInput.value = '';
+    await loadTasks();
+  });
+
+  loadTasks();
+</script>
+</body>
+</html>
